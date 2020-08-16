@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { Router, ActivatedRoute } from '@angular/router';
+import { NavController, ModalController } from '@ionic/angular';
+import { PlacesService } from '../../places.service';
+import { Place } from '../../place.model';
+
+// Relative Pfad zu Modal-Component
+// ACHTUNG: Modal-Comonent auch in .module.ts registrieren
+import { CreateBookingComponent } from '../../../bookings/create-booking/create-booking.component';
 
 @Component({
   selector: 'app-place-detail',
@@ -8,17 +14,49 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./place-detail.page.scss'],
 })
 export class PlaceDetailPage implements OnInit {
+  place: Place;
 
-  constructor(private router: Router, private navCtrl: NavController) { }
+  constructor(
+    private navCtrl: NavController,
+    private route: ActivatedRoute,
+    private placesService: PlacesService,
+    private modalCtrl: ModalController
+  ) {}
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.route.paramMap.subscribe(paramMap => {
+        if (!paramMap.has('placeId')) {
+          // this.router.navigateByUrl('/places/tabs/discover');
+          // this.navCtrl.pop();
+          // ionic verwaltet den page-stack => best practice !
+          this.navCtrl.navigateBack('/places/tabs/discover');
+          return;
+        }
+        this.place = this.placesService.getPlace(paramMap.get('placeId'));
+      });
+    }
 
   onBookPlace() {
     // this.router.navigateByUrl('/places/tabs/discover');
 
     // ionic verwaltet den page-stack => best practice !
-    this.navCtrl.navigateBack('/places/tabs/discover');
+    // this.navCtrl.navigateBack('/places/tabs/discover');
     // this.navCtrl.pop();
+    this.modalCtrl
+    .create({
+      component: CreateBookingComponent,
+      // die componentProps des ModalContrl erhält die Componente als @Input
+      componentProps: { selectedPlace: this.place }
+    })
+    .then(modalEl => {
+      modalEl.present();
+      return modalEl.onDidDismiss();
+    })
+    .then(resultData => {
+      console.log(resultData.data, resultData.role);
+      if (resultData.role === 'confirm') {
+        console.log('BOOKED!');
+      }
+    });
   }
 }

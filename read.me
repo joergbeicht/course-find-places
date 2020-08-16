@@ -22,8 +22,23 @@ Projekt Struktur erstellen - Pages, Components, Services, Pipe, Module
 - ionic g page places/offers/edit-offer
 - ionic g page places/offers/offer-bookings
 - ionic g page bookings
+- ionic g component bookings/create-booking
 - ionic g service places/places
+- ionic g service auth/auth
+- ionic g guard auth/auth
 
 Tabs erstellen - https://ionicframework.com/docs/api/tabs
 =========================================================
+
+Auth-Guard erstellen - auth-Page einbinden
+==========================================
+- auth-Page und auth-Service erstellen
+- ionic guard erstellen mit CanLoad Eigenschaft
+- guard implementieren in app-routing.module
+  - Anforderung:
+    auth-guard soll bei places und bookings greifen!
+  - das geht einfach als Eigenschaft auf places und bookings mit
+    canLoad: [AuthGuard]
+
+
 

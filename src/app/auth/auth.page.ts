@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-auth',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthPage implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router, private navCtrl: NavController) { }
 
   ngOnInit() {
+  }
+
+  onLogin() {
+    this.authService.login();
+    // this.router.navigateByUrl('/places/tabs/discover');
+    this.navCtrl.navigateForward('/places/tabs/discover');
   }
 
 }

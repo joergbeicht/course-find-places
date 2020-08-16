@@ -8,6 +8,9 @@ import { PlaceDetailPageRoutingModule } from './place-detail-routing.module';
 
 import { PlaceDetailPage } from './place-detail.page';
 
+// Relativen Pfad benutzen
+import { CreateBookingComponent } from '../../../bookings/create-booking/create-booking.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +18,7 @@ import { PlaceDetailPage } from './place-detail.page';
     IonicModule,
     PlaceDetailPageRoutingModule
   ],
-  declarations: [PlaceDetailPage]
+  declarations: [PlaceDetailPage, CreateBookingComponent],
+  entryComponents: [CreateBookingComponent]
 })
 export class PlaceDetailPageModule {}

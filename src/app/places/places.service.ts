@@ -31,8 +31,13 @@ export class PlacesService {
 
   // Getter liefert eine Kopie von places
   get places() {
+    console.log('getter');
     return [...this._places];
   }
 
   constructor() { }
+
+  getPlace(id: string) {
+    return {...this._places.find(p => p.id === id)};
+  }
 }
