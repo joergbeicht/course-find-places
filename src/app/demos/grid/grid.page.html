@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/places/tabs/offers"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Grid Demo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">Row 1 Col 1</ion-col>
+      <ion-col size="2">Row 1 Col 2</ion-col>
+    </ion-row>
+    <ion-row>
+      <!-- center -->
+      <!-- Einfachste Form eine Col in einer Row zu zentrieren 
+           Die zweite Col schließt sich einfach mit der Breite von 4-Col an -->
+      <ion-col size="4" offset="2">Row 2 Col 1</ion-col>
+      <ion-col size="4">Row 2 Col 2</ion-col>
+    </ion-row>
+
+    <!-- die Default Einstellung ist ion-align-items-stretch
+      ion-align-items-start sorgt dafür, dass Row 3 Col 1 on Top nicht automatisch durch Row 3 Col 2 gestrecht wird 
+      ion-align-items-end sorgt dafür, dass Row 3 Col 1 on Buttpm nicht automatisch durch Row 3 Col 2 gestrecht wird 
+      ion-align-items-center sorgt dafür, dass Row 3 Col 1 on Center nicht automatisch durch Row 3 Col 2 gestrecht wird 
+      justify-content-start
+      justify-content-center
+      justify-content-end
+    -->
+    <ion-row class="ion-align-items-end">
+      <ion-col size="4" >Row 3 Col 1</ion-col>
+      <ion-col size="4">
+        <ion-card>
+          <ion-card-content>
+            <h1>The Column</h1>
+            <p>Row 3 Col 2</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <br>
+    <!-- Responsive
+         size="5" => Die Col ist als Default 5 Cols breit von insgesamt 12 Cols
+         size-sm="4" => Wenn die Bildschrimbreite 576px unterschreitet werden 4 Cols gesetzt
+    -->
+    <ion-row align-items-center justify-content-center>
+      <ion-col size="5" size-sm="4" size-md="2" offset-sm="2">Row 4 Col 1 xxx</ion-col>
+    </ion-row>
+
+    <br>
+    <ion-row align-items-center justify-content-center>
+      
+      <ion-col size="5" size-sm="4" size-md="2" offset-sm="2" offset-md="4"
+        >Row 1 Col 1</ion-col
+      >
+      <ion-col size="1" size-sm="4" size-md="3">
+        <ion-card>
+          <ion-card-content>
+            <h1>The Column</h1>
+            <p>Row 1 Col 2</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

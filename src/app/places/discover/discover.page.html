@@ -13,6 +13,8 @@
 <ion-content class="ion-padding">
   <ion-grid>
     <ion-row>
+      <!-- aize="12" ist Default-Vorgabe  
+           Responsive Optionen: size-sm="8" offset-sm="2"-->
       <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
         <ion-card>
           <ion-card-header>
@@ -23,7 +25,9 @@
           </ion-card-header>
           <ion-img [src]="loadedPlaces[0].imageUrl"></ion-img>
           <ion-card-content>
-            <p>{{ loadedPlaces[0].description }}</p>
+            <ion-text color="danger">
+              <p>{{ loadedPlaces[0].description }}</p>
+            </ion-text>
           </ion-card-content>
           <div>
             <!-- loadedPlaces[0].id ist das dynamische Segment -->
@@ -57,6 +61,9 @@
             <ion-thumbnail slot="start">
               <ion-img [src]="place.imageUrl"></ion-img>
             </ion-thumbnail>
+            <!-- Das ist die typische Nutzung eines Label in ionic
+                 Immer in einem item und dann in weiteren Tags wie hier 
+                 z.B. <h2> oder <p> oder ... -->
             <ion-label>
               <h2>{{ place.title }}</h2>
               <p>{{ place.description }}</p>

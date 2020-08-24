@@ -1,6 +1,8 @@
 Ionic project erstellen
 =======================
 - ionic start projektName blank
+- ionic serve
+
 
 Git (aufsetzen)
 ===============
@@ -26,6 +28,7 @@ Projekt Struktur erstellen - Pages, Components, Services, Pipe, Module
 - ionic g service places/places
 - ionic g service auth/auth
 - ionic g guard auth/auth
+- ionic g page demos/grid
 
 Tabs erstellen - https://ionicframework.com/docs/api/tabs
 =========================================================
@@ -40,5 +43,13 @@ Auth-Guard erstellen - auth-Page einbinden
   - das geht einfach als Eigenschaft auf places und bookings mit
     canLoad: [AuthGuard]
 
-
-
+ION-GRID
+========
+- http://localhost:8100/grid & guard ausschalten
+Ion-grid hat unter der Haube css Flexbox
+- Mit dem Grid spielen => siehe new offer Page
+- 128 - Ionic Grid Basics
+- Alignment
+  https://ionicframework.com/docs/layout/grid#alignment
+- Responsive (Default Breakpoints)
+  https://ionicframework.com/docs/layout/grid
