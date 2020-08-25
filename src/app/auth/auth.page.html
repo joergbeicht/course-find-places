@@ -11,6 +11,14 @@
     
   </ion-item>
   <ion-button color="primary" (click)="onLogin()" *ngIf="!isLoading">
-    Login
+    Login (Default Global Component Color Beispiel, color="primary" siehe --ion-color-primary in variable.scss)
   </ion-button>
+
+  <ion-button (click)="onLogin()" *ngIf="!isLoading">
+    Login (Custom Global override Color Beispiel siehe ion-button backround: green in variable.scss)
+  </ion-button>
+
+  <!-- <ion-button (click)="onLogin()" *ngIf="!isLoading">
+    Login (Custom Global override Color Beispiel siehe ion-button {--backround: green; } in variable.scss)
+  </ion-button> -->
 </ion-content>
